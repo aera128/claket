@@ -249,7 +249,7 @@ export default {
     },
     changeDevice() {
       const db = this.$store.getters.getDB
-      const transaction = db.transaction('Settings', window.indexedDB.READ)
+      const transaction = db.transaction('Settings', 'readwrite')
       const store = transaction.objectStore('Settings')
       store.add({ id: 'deviceId', value: this.device })
       this.$store.commit('setDevice', this.device)
