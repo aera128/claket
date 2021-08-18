@@ -4,9 +4,9 @@
     <div class="hero min-h-screen bg-base-200" v-if="error">
       <div class="text-center hero-content animate__animated animate__zoomIn">
         <div class="max-w-xl">
-          <h1 class="mb-5 text-5xl font-bold">Browser not supported</h1>
+          <h1 class="mb-5 text-5xl font-bold">Browser not supported :(</h1>
           <p class="mb-5">
-            Pleaser use Claket with a supported browser or with
+            Please use Claket with a supported browser or with
             <a
               href="https://github.com/nativefier/nativefier"
               class="link"
