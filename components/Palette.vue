@@ -1,6 +1,6 @@
 <template>
   <section class="container mx-auto px-1 md:px-0">
-    <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="grid grid-cols-1 md:grid-cols-2 mx-2">
       <svg
         class="min-w-full animate__animated animate__backInDown"
         version="1.0"
@@ -99,42 +99,53 @@ c-21 0 -25 -5 -25 -32 l0 -31 -22 20 c-37 33 -64 43 -115 43 -31 0 -62 -8 -88
         <Volume class="animate__animated animate__backInDown" />
       </div>
     </div>
-    <div class="mt-2 text-right animate__animated animate__backInUp">
-      <button class="btn flex-shrink" @click="lastPage" :disabled="isFirstPage">
+    <div class="mt-2 text-right mr-2 animate__animated animate__backInUp">
+      <button
+        class="btn btn-square flex-shrink tooltip"
+        @click="lastPage"
+        :disabled="isFirstPage"
+        data-tip="Previous Page"
+      >
         <span class="text-2xl mdi mdi-arrow-left"></span>
       </button>
       <span class="font-mono text-4xl countdown mt-5">
         <span :style="'--value: ' + page" class="page-count"></span>
       </span>
-      <button class="btn flex-shrink" @click="nextPage" :disabled="isLastPage">
+      <button
+        class="btn btn-square flex-shrink tooltip"
+        @click="nextPage"
+        :disabled="isLastPage"
+        data-tip="Next Page"
+      >
         <span class="text-2xl mdi mdi-arrow-right"></span>
       </button>
       <button
-        class="btn"
+        class="btn btn-square tooltip"
         v-if="$store.state.paused || $store.state.audios.length === 0"
         :disabled="haveAudio"
         @click="playAll"
+        data-tip="Resume"
       >
         <span class="text-2xl mdi mdi-play"></span>
       </button>
-      <button class="btn" v-else @click="pauseAll">
+      <button class="btn btn-square tooltip" v-else @click="pauseAll" data-tip="Pause">
         <span class="text-2xl mdi mdi-pause"></span>
       </button>
-      <button class="btn" @click="stopAll">
+      <button class="btn btn-square tooltip" @click="stopAll" data-tip="Stop">
         <span class="text-2xl mdi mdi-stop"></span>
       </button>
-      <button class="btn" @click="toggleLoop">
+      <button class="btn btn-square tooltip" @click="toggleLoop" data-tip="Loop">
         <span class="text-2xl mdi mdi-sync" v-if="$store.state.loop"></span>
         <span class="text-2xl mdi mdi-sync-off" v-else></span>
       </button>
-      <button class="btn" @click="togglePlayback">
+      <button class="btn btn-square tooltip" @click="togglePlayback" data-tip="Playback">
         <span
           class="text-2xl mdi mdi-speaker"
           v-if="$store.state.playback"
         ></span>
         <span class="text-2xl mdi mdi-speaker-off" v-else></span>
       </button>
-      <button class="btn" @click="resetPage">
+      <button class="btn btn-square tooltip" @click="resetPage" data-tip="Delete Page">
         <span class="text-2xl mdi mdi-delete"></span>
       </button>
     </div>
@@ -194,20 +205,6 @@ export default {
     }
   },
   computed: {
-    isDark() {
-      console.log(this.$store.state.theme)
-      return [
-        'aqua',
-        'dark',
-        'forest',
-        'luxury',
-        'synthwave',
-        'halloween',
-        'black',
-        'dracula',
-        'valentine',
-      ].includes(this.$store.state.theme)
-    },
     isFirstPage() {
       return this.page === 1
     },
@@ -349,7 +346,9 @@ export default {
             const objectStore = transaction.objectStore('Settings')
             const request = objectStore.get('deviceId')
             request.onerror = (event) => {
-              this.device = this.devices[0].deviceId
+              try {
+                this.device = this.devices[0].deviceId
+              } catch (error) {}
               this.$store.commit('setDevice', this.device)
             }
 
@@ -357,7 +356,9 @@ export default {
               if (request.result) {
                 this.device = request.result.value
               } else {
-                this.device = this.devices[0].deviceId
+                try {
+                  this.device = this.devices[0].deviceId
+                } catch (error) {}
               }
               this.$store.commit('setDevice', this.device)
             }

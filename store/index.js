@@ -170,21 +170,22 @@ export const actions = {
         audio.loop = ctx.state.loop
 
         audio.playback = audio.cloneNode()
-        if (ctx.state.playback === false || ctx.state.device === 'default') {
+        console.log(ctx.state.device);
+        if (ctx.state.playback === false || ['default', undefined, null].includes(ctx.state.device)) {
             audio.playback.volume = 0
         } else {
             audio.playback.volume = ctx.state.volume * audio.coef
         }
         audio.playback.loop = ctx.state.loop
         this.commit('addAudio', audio)
-        try{
+        try {
             audio.setSinkId(ctx.state.device).then(() => {
                 audio.play()
                 audio.playback.play()
                 this.commit('setPaused', false)
             })
         }
-        catch(error){
+        catch (error) {
             audio.play()
             audio.playback.play()
             this.commit('setPaused', false)

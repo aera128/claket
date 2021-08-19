@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-screen bg-base-100">
+  <section class="min-h-screen bg-base-100 overflow-hidden">
     <Palette v-if="ready" />
     <div class="hero min-h-screen bg-base-200" v-if="error">
       <div class="text-center hero-content animate__animated animate__zoomIn">
@@ -115,6 +115,7 @@ export default {
     document.addEventListener('contextmenu', (event) => event.preventDefault())
 
     if (window.indexedDB) {
+      window.indexedDB.deleteDatabase('claketSoundboard')
       let request = window.indexedDB.open('claketSoundboard', 1)
       request.onerror = (event) => {
         alert('Error with IndexedDB')
