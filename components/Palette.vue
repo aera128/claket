@@ -72,7 +72,7 @@ c-21 0 -25 -5 -25 -32 l0 -31 -22 20 c-37 33 -64 43 -115 43 -31 0 -62 -8 -88
           @click="loadDevices"
           v-model="device"
           @change="changeDevice"
-          v-if="devices.length > 0"
+          v-if="devices.length > 1"
         >
           <option
             v-for="device in devices"
@@ -343,19 +343,6 @@ export default {
                     groupId: d.groupId,
                   })
               )
-            if (this.devices.length === 0) {
-              this.devices = devices
-                .filter((d) => d.kind === 'audioinput')
-                .map(
-                  (d) =>
-                    (d = {
-                      deviceId: d.deviceId,
-                      kind: d.kind,
-                      label: d.label,
-                      groupId: d.groupId,
-                    })
-                )
-            }
 
             const db = this.$store.getters.getDB
             const transaction = db.transaction(['Settings'])
