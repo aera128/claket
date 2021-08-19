@@ -177,11 +177,18 @@ export const actions = {
         }
         audio.playback.loop = ctx.state.loop
         this.commit('addAudio', audio)
-        audio.setSinkId(ctx.state.device).then(() => {
+        try{
+            audio.setSinkId(ctx.state.device).then(() => {
+                audio.play()
+                audio.playback.play()
+                this.commit('setPaused', false)
+            })
+        }
+        catch(error){
             audio.play()
             audio.playback.play()
             this.commit('setPaused', false)
-        })
+        }
     },
     pauseAll(ctx) {
         ctx.state.audios.forEach(audio => {
