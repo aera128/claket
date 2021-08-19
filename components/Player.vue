@@ -1,6 +1,6 @@
 <template>
   <div class="flex my-2">
-    <button class="btn btn-square mr-2" @click="togglePause">
+    <button class="btn btn-square mx-2" @click="togglePause">
       <span v-if="audio.paused" class="text-2xl mdi mdi-play"></span>
       <span v-else class="text-2xl mdi mdi-pause"></span>
     </button>
