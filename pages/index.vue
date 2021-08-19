@@ -115,7 +115,6 @@ export default {
     document.addEventListener('contextmenu', (event) => event.preventDefault())
 
     if (window.indexedDB) {
-      window.indexedDB.deleteDatabase('claketSoundboard')
       let request = window.indexedDB.open('claketSoundboard', 1)
       request.onerror = (event) => {
         alert('Error with IndexedDB')
