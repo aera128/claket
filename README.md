@@ -16,7 +16,7 @@
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/aera128/aera128/claket/total) ![Forks](https://img.shields.io/github/forks/aera128/aera128/claket?style=social) ![Stargazers](https://img.shields.io/github/stars/aera128/aera128/claket?style=social) ![Issues](https://img.shields.io/github/issues/aera128/aera128/claket) ![License](https://img.shields.io/github/license/aera128/aera128/claket) 
+![Downloads](https://img.shields.io/github/downloads/aera128/aera128/claket/total) ![Issues](https://img.shields.io/github/issues/aera128/aera128/claket)
 
 ## About The Project
 
@@ -46,7 +46,7 @@ $ yarn generate
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/aera128/aera128/claket/blob/main/LICENSE.md) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/aera128/aera128/claket/LICENSE) for more information.
 
 ## Authors
 
