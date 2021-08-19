@@ -20,7 +20,7 @@
 
 ## About The Project
 
-![Screen Shot](static/ClaketSoundboard.jpeg)
+![ScreenShot](static/ClaketSoundboard.jpeg)
 
 Claket is a simple PWA soundboard made with Nuxt.js and use IndexedDB API.
 
