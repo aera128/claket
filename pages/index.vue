@@ -114,7 +114,7 @@ export default {
     }
     document.addEventListener('contextmenu', (event) => event.preventDefault())
 
-    if (window.indexedDB && !navigator.userAgent.includes('Firefox')) {
+    if (window.indexedDB) {
       let request = window.indexedDB.open('claketSoundboard', 1)
       request.onerror = (event) => {
         alert('Error with IndexedDB')
