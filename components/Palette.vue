@@ -79,6 +79,7 @@ c-21 0 -25 -5 -25 -32 l0 -31 -22 20 c-37 33 -64 43 -115 43 -31 0 -62 -8 -88
             :key="device.deviceId"
             :value="device.deviceId"
           >
+            {{ device.kind === 'audioinput' ? 'INPUT' : 'OUTPUT' }} -
             {{ device.label }}
           </option>
         </select>
@@ -128,24 +129,41 @@ c-21 0 -25 -5 -25 -32 l0 -31 -22 20 c-37 33 -64 43 -115 43 -31 0 -62 -8 -88
       >
         <span class="text-2xl mdi mdi-play"></span>
       </button>
-      <button class="btn btn-square tooltip" v-else @click="pauseAll" data-tip="Pause">
+      <button
+        class="btn btn-square tooltip"
+        v-else
+        @click="pauseAll"
+        data-tip="Pause"
+      >
         <span class="text-2xl mdi mdi-pause"></span>
       </button>
       <button class="btn btn-square tooltip" @click="stopAll" data-tip="Stop">
         <span class="text-2xl mdi mdi-stop"></span>
       </button>
-      <button class="btn btn-square tooltip" @click="toggleLoop" data-tip="Loop">
+      <button
+        class="btn btn-square tooltip"
+        @click="toggleLoop"
+        data-tip="Loop"
+      >
         <span class="text-2xl mdi mdi-sync" v-if="$store.state.loop"></span>
         <span class="text-2xl mdi mdi-sync-off" v-else></span>
       </button>
-      <button class="btn btn-square tooltip" @click="togglePlayback" data-tip="Playback">
+      <button
+        class="btn btn-square tooltip"
+        @click="togglePlayback"
+        data-tip="Playback"
+      >
         <span
           class="text-2xl mdi mdi-speaker"
           v-if="$store.state.playback"
         ></span>
         <span class="text-2xl mdi mdi-speaker-off" v-else></span>
       </button>
-      <button class="btn btn-square tooltip" @click="resetPage" data-tip="Delete Page">
+      <button
+        class="btn btn-square tooltip"
+        @click="resetPage"
+        data-tip="Delete Page"
+      >
         <span class="text-2xl mdi mdi-delete"></span>
       </button>
     </div>
@@ -341,6 +359,19 @@ export default {
                   })
               )
 
+            if (this.devices.length === 0) {
+              this.devices = devices
+                .filter((d) => d.kind === 'audioinput')
+                .map(
+                  (d) =>
+                    (d = {
+                      deviceId: d.deviceId,
+                      kind: d.kind,
+                      label: d.label,
+                      groupId: d.groupId,
+                    })
+                )
+            }
             const db = this.$store.getters.getDB
             const transaction = db.transaction(['Settings'])
             const objectStore = transaction.objectStore('Settings')
