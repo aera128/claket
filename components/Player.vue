@@ -14,7 +14,7 @@
         v-model="currentTime"
         :max="duration"
         min="0"
-        step="0.001"
+        step="0.00001"
         @mousedown="mouseDown"
         @mouseup="mouseUp"
         @input="changeCurrentTime"

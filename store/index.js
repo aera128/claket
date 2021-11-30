@@ -170,7 +170,6 @@ export const actions = {
         audio.loop = ctx.state.loop
 
         audio.playback = audio.cloneNode()
-        console.log(ctx.state.device);
         if (ctx.state.playback === false || ['default', undefined, null].includes(ctx.state.device)) {
             audio.playback.volume = 0
         } else {

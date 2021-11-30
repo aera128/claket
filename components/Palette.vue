@@ -149,7 +149,7 @@ c-21 0 -25 -5 -25 -32 l0 -31 -22 20 c-37 33 -64 43 -115 43 -31 0 -62 -8 -88
         <span class="text-2xl mdi mdi-delete"></span>
       </button>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 mt-5">
+    <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 mt-5 mb-16">
       <Button
         v-for="n in 24"
         :key="n"
