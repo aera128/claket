@@ -25,6 +25,27 @@
 export default {
   mounted() {
     this.getVolume()
+    window.addEventListener('keydown', (e) => {
+      switch (e.code) {
+        case 'KeyM':
+        case 'Semicolon':
+          e.preventDefault()
+          this.toggleVolume()
+          break
+        case 'NumpadSubtract':
+          e.preventDefault()
+          this.volume - 0.1 < 0 ? this.volume = 0 : this.volume -= 0.1
+          this.changeVolume()
+          this.saveVolume()
+          break
+        case 'NumpadAdd':
+          e.preventDefault()
+          this.volume + 0.1 > 1 ? this.volume = 1 : this.volume += 0.1
+          this.changeVolume()
+          this.saveVolume()
+          break
+      }
+    })
   },
   data() {
     return {
