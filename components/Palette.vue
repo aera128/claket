@@ -228,23 +228,6 @@ export default {
           this.resetPage()
           break
       }
-
-      // if (e.code === 'KeyR') {
-      //   e.preventDefault()
-      //   this.stopAll()
-      // }
-
-      // if (e.code === 'KeyL') {
-      //   e.preventDefault()
-      //   this.toggleLoop()
-      // }
-
-      // if (e.code === 'KeyP') {
-      //   e.preventDefault()
-      //   this.togglePlayback()
-      // }
-
-      console.log(e.code)
     })
   },
   data() {
