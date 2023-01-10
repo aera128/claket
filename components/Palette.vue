@@ -100,7 +100,7 @@ c-21 0 -25 -5 -25 -32 l0 -31 -22 20 c-37 33 -64 43 -115 43 -31 0 -62 -8 -88
         >
           <span class="text-2xl mdi mdi-arrow-left"></span>
         </button>
-        <span class="font-mono text-4xl countdown mt-5">
+        <span class="font-mono text-4xl countdown mt-5" @wheel="onScrollPage">
           <span :style="'--value: ' + page" class="page-count"></span>
         </span>
         <button
@@ -128,7 +128,11 @@ c-21 0 -25 -5 -25 -32 l0 -31 -22 20 c-37 33 -64 43 -115 43 -31 0 -62 -8 -88
         >
           <span class="text-2xl mdi mdi-pause"></span>
         </button>
-        <button class="btn btn-square tooltip tooltip-bottom" @click="stopAll" data-tip="Stop">
+        <button
+          class="btn btn-square tooltip tooltip-bottom"
+          @click="stopAll"
+          data-tip="Stop"
+        >
           <span class="text-2xl mdi mdi-stop"></span>
         </button>
         <button
@@ -273,6 +277,10 @@ export default {
     },
   },
   methods: {
+    onScrollPage(e) {
+      e.preventDefault()
+      e.deltaY > 0 ? this.lastPage() : this.nextPage()
+    },
     pauseAll() {
       this.$store.dispatch('pauseAll')
     },
