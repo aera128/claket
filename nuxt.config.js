@@ -7,12 +7,23 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Claket Soundboard',
+    title: 'Claket',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: "title", content: "Claket" },
+      { hid: 'description', name: 'description', content: 'Claket is a soundboard that allows you to play sounds in voice chats like Discord, Teamspeak and other !' },
+      { name: 'format-detection', content: 'telephone=no' },
+      { property: "og:type", content:"website"},
+      { property: "og:url", content:"https://claket.netlify.app/"},
+      { property: "og:title", content:"Claket"},
+      { property: "og:description", content:"Claket is a soundboard that allows you to play sounds in voice chats like Discord, Teamspeak and other !"},
+      { property: "og:image", content:"https://claket.netlify.app/claket.png"},
+      { property: "twitter:card", content:"summary_large_image"},
+      { property: "twitter:url", content:"https://claket.netlify.app/"},
+      { property: "twitter:title", content:"Claket"},
+      { property: "twitter:description", content:"Claket is a soundboard that allows you to play sounds in voice chats like Discord, Teamspeak and other !"},
+      { property: "twitter:image", content:"https://claket.netlify.app/claket.png"},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/icons/logo.png' }
