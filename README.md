@@ -74,4 +74,4 @@ Distributed under the MIT License. See [LICENSE](https://github.com/aera128/aera
 
 ## Authors
 
-**Sk4ur** - *Fullstack Web Developer* - [Sk4ur](https://github.com/aera128/)
+[**Sk4ur**](https://github.com/aera128/)
