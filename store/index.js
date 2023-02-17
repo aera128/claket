@@ -1,7 +1,7 @@
 export const state = () => ({
     db: null,
     volume: 0.5,
-    playback: true,
+    playback: false,
     device: null,
     audios: [],
     loop: false,
