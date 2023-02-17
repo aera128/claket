@@ -1,50 +1,24 @@
 <template>
   <div class="m-2">
-    <button
-      class="btn btn-claket w-full"
-      @click="clickInput"
-      v-if="sound === null"
-    >
-      <span class="text-3xl mdi mdi-plus" />
-      <input
-        type="file"
-        hidden
-        ref="inputFile"
-        @change="loadFile"
-        accept="audio/*"
-      />
+    <button :class="'btn btn-claket w-full ' + (isDrag ? 'brightness-125 scale-105 z-50' : '')" @click="clickInput" v-if="sound === null"
+      @drop.prevent="loadFile" @dragover.prevent @dragenter.prevent="onDrag" @dragleave.prevent="onDrag">
+      <span class="pointer-events-none text-4xl mdi mdi-download animate__animated animate__rubberBand" v-if="isDrag" />
+      <span class="pointer-events-none text-3xl mdi mdi-plus" v-else />
+      <input type="file" hidden ref="inputFile" @change="loadFile" accept="audio/*" />
     </button>
     <div v-else>
-      <button
-        class="btn btn-claket w-full break-all line-clamp-1"
-        v-if="!isMenu"
-        @click.left="playSound"
-        @click.right="toggleMenu"
-      >
+      <button class="btn btn-claket w-full break-all line-clamp-1" v-if="!isMenu" @click.left="playSound"
+        @click.right="toggleMenu">
         {{ sound.name }}
       </button>
       <div v-if="isMenu">
-        <button
-          class="btn btn-menu w-full break-all line-clamp-1 mb-6"
-          @click.left="removeSound"
-        >
+        <button class="btn btn-menu w-full break-all line-clamp-1 mb-6" @click.left="removeSound">
           <span class="text-3xl mdi mdi-delete" />
         </button>
 
-        <input
-          v-model="coef"
-          type="range"
-          min="0"
-          max="1"
-          step="0.001"
-          class="range flex-grow my-5"
-          @change="saveFile(sound)"
-          @input="changeCoef"
-        />
-        <button
-          class="btn btn-menu w-full break-all line-clamp-1 mt-4"
-          @click.left="toggleMenu"
-        >
+        <input v-model="coef" type="range" min="0" max="1" step="0.001" class="range range-sm flex-grow my-5"
+          @change="saveFile(sound)" @input="changeCoef" />
+        <button class="btn btn-menu w-full break-all line-clamp-1 mt-4" @click.left="toggleMenu">
           <span class="text-lg">Close</span>
         </button>
       </div>
@@ -69,6 +43,7 @@ export default {
       coef: 0.5,
       file: null,
       isMenu: false,
+      isDrag: false,
     }
   },
   mounted() {
@@ -78,18 +53,21 @@ export default {
     })
   },
   methods: {
+    onDrag(e) {
+      this.isDrag = e.type === "dragenter"
+    },
     getSound() {
       this.isMenu = false
       const db = this.$store.getters.getDB
       const transaction = db.transaction(['Sounds'])
       const objectStore = transaction.objectStore('Sounds')
       const request = objectStore.get([this.page, this.index])
-      request.onerror = function (event) {
+      request.onerror = () => {
         this.sound = null
         this.coef = 0.5
       }
 
-      request.onsuccess = (event) => {
+      request.onsuccess = () => {
         if (request.result) {
           this.sound = request.result.file
           this.coef = request.result.coef
@@ -104,7 +82,7 @@ export default {
       const transaction = db.transaction('Sounds', 'readwrite')
       const store = transaction.objectStore('Sounds')
       store.delete([this.page, this.index])
-      transaction.oncomplete = (event) => {
+      transaction.oncomplete = () => {
         this.sound = null
         this.coef = 0.5
         this.isMenu = !this.isMenu
@@ -114,6 +92,7 @@ export default {
       this.$refs.inputFile.click()
     },
     loadFile(e) {
+      this.isDrag = false
       this.file = null
       let files = e.target.files || e.dataTransfer.files
       if (!files.length) return
@@ -129,11 +108,11 @@ export default {
       const store = transaction.objectStore('Sounds')
       store.add({ id: [this.page, this.index], file: file, coef: this.coef })
 
-      transaction.oncomplete = (event) => {
+      transaction.oncomplete = () => {
         this.sound = file
       }
 
-      transaction.onerror = (event) => {
+      transaction.onerror = () => {
         const transaction = db.transaction('Sounds', 'readwrite')
         const store = transaction.objectStore('Sounds')
         store.put({ id: [this.page, this.index], file: file, coef: this.coef })
@@ -158,7 +137,7 @@ export default {
     },
   },
   watch: {
-    page(newValue, oldValue) {
+    page() {
       this.getSound()
     },
   },
@@ -169,6 +148,7 @@ export default {
 .btn-claket {
   height: 200px;
 }
+
 .btn-menu {
   height: 50px;
 }

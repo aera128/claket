@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-screen bg-base-100 overflow-hidden">
+  <section class="min-h-screen bg-base-100 overflow-x-hidden">
     <Palette v-if="ready" />
     <div class="hero min-h-screen bg-base-200" v-if="error">
       <div class="text-center hero-content animate__animated animate__zoomIn">
@@ -7,72 +7,44 @@
           <h1 class="mb-5 text-5xl font-bold">Browser not supported :(</h1>
           <p class="mb-5">
             Please use Claket with a supported browser or with
-            <a
-              href="https://github.com/nativefier/nativefier"
-              class="link"
-              target="_blank"
-              >Nativefier</a
-            >
+            <a href="https://github.com/nativefier/nativefier" class="link" target="_blank">Nativefier</a>
           </p>
-          <div
-            class="
-              grid grid-cols-3
-              justify-items-center
-              animate__animated animate__slideInUp
-            "
-          >
+          <div class="
+                  grid grid-cols-3
+                  justify-items-center
+                  animate__animated animate__slideInUp
+                ">
             <a href="https://www.chromium.org/" target="_blank">
-              <img
-                class="w-20"
-                src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Chromium_Material_Icon.svg"
-              />
+              <img class="w-20" src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Chromium_Material_Icon.svg"  alt="wikipedia"/>
             </a>
             <a href="https://brave.com" target="_blank">
-              <img
-                class="w-20"
-                src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Brave_lion.png"
-              />
+              <img class="w-20" src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Brave_lion.png"  alt="brave"/>
             </a>
-            <img
-              class="w-20"
-              src="https://upload.wikimedia.org/wikipedia/fr/2/20/Logo_Microsoft_Edge.png"
-            />
+            <img class="w-20" src="https://upload.wikimedia.org/wikipedia/fr/2/20/Logo_Microsoft_Edge.png"  alt="edge"/>
           </div>
         </div>
       </div>
     </div>
-    <div
-      v-if="$store.state.audios.length > 0"
-      class="
-        fixed
-        bottom-0
-        bg-base-200
-        w-full
-        max-h-96
-        overflow-y-auto
-        animate__animated animate__slideInUp
-      "
-      style="animation-duration: 300ms"
-    >
+    <div v-if="$store.state.audios.length > 0" class="
+            fixed
+            bottom-0
+            bg-base-200
+            w-full
+            max-h-96
+            overflow-y-auto
+            animate__animated animate__slideInUp
+          " style="animation-duration: 300ms">
       <div class="container mx-auto">
         <div v-for="(audio, index) in $store.state.audios" :key="index">
           <div v-if="index === 0" class="flex">
             <Player :audio="audio" class="w-full" />
-            <button
-              class="btn btn-square mt-2 ml-2"
-              @click="collapse = !collapse"
-              :disabled="haveEnoughAudio"
-            >
+            <button class="btn btn-square mt-2 ml-2" @click="collapse = !collapse" :disabled="haveEnoughAudio">
               <span class="text-2xl mdi mdi-arrow-up" v-if="collapse"></span>
               <span class="text-2xl mdi mdi-arrow-down" v-else></span>
             </button>
           </div>
-          <div
-            v-if="!collapse"
-            class="animate__animated animate__zoomIn"
-            style="animation-duration: 300ms"
-          >
-            <Player :audio="audio" v-if="index > 0" />
+          <div v-if="!collapse" class="animate__animated animate__zoomIn" style="animation-duration: 300ms">
+            <Player :audio="audio" v-if="index > 0" class="pr-14" />
           </div>
         </div>
       </div>
@@ -116,7 +88,7 @@ export default {
 
     if (window.indexedDB) {
       let request = window.indexedDB.open('claketSoundboard', 1)
-      request.onerror = (event) => {
+      request.onerror = () => {
         alert('Error with IndexedDB')
         this.error = true
       }
@@ -144,7 +116,7 @@ export default {
           db.createObjectStore('Settings', {
             keyPath: 'id',
           })
-        } catch (error) {}
+        } catch (error) { }
 
         this.$store.commit('setDB', db)
         this.ready = true
@@ -154,22 +126,8 @@ export default {
     }
   },
   methods: {
-    openDB() {},
+    openDB() { },
   },
 }
 </script>
 
-<style>
-*::-webkit-scrollbar {
-  width: 7px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #000000;
-  outline: 1px solid #000000;
-}
-
-*::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-</style>

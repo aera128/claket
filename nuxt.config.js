@@ -18,13 +18,13 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/icons/logo.png' }
     ],
     htmlAttrs: {
-      lang: 'en',
-    },
+      lang: 'en'
+    }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'animate.css/animate.min.css',
+    'animate.css/animate.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -38,31 +38,31 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    'nuxt-purgecss',
+    'nuxt-purgecss'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    'nuxtjs-mdi-font',
+    'nuxtjs-mdi-font'
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     meta: {
       title: 'Claket Soundboard',
-      author: 'aera128',
+      author: 'aera128'
     },
     manifest: {
       name: 'Claket Soundboard',
       short_name: 'Claket',
       lang: 'en',
-      display: 'standalone',
+      display: 'standalone'
     }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  loading: { color: '#000000' },
+  loading: { color: '#000000' }
 }

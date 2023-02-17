@@ -8,18 +8,9 @@
       <span class="text-2xl mdi mdi-stop"></span>
     </button>
     <div class="w-full">
-      <input
-        type="range"
-        class="range"
-        v-model="currentTime"
-        :max="duration"
-        min="0"
-        step="0.00001"
-        @mousedown="mouseDown"
-        @mouseup="mouseUp"
-        @input="changeCurrentTime"
-      />
-      <p class="text-xs -mt-2">{{ audio.name }}</p>
+      <input type="range" class="range range-sm" v-model="currentTime" :max="duration" min="0" step="0.00001"
+        @mousedown="mouseDown" @mouseup="mouseUp" @input="changeCurrentTime" />
+      <p class="text-xs -mt-1">{{ audio.name }}</p>
       <p class="text-xs">{{ formatTime }}</p>
     </div>
   </div>
