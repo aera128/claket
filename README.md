@@ -38,7 +38,7 @@ Claket is a web PWA that allows you to play sounds in voice chats, made with Nux
 
 ### 🚧 Installation
 
-go the [releases](https://github.com/aera128/claket/releases/) page
+Go the [releases](https://github.com/aera128/claket/releases/) page
 
 - Windows : use the [setup](https://github.com/aera128/claket/releases/download/neutralino/claket-setup.exe) or extract the zip file and launch claket-win_x64.exe
 - Other : extract the zip file and launch the executable corresponding to the architecture of your machine
