@@ -7,7 +7,7 @@
   <h3 align="center">Claket Soundboard</h3>
 
   <p align="center">
-    Web PWA soundboard made with Nuxt.js. Play sounds in voice chats !
+    Soundboard made with Nuxt2 Play sounds in voice chats !
     <br/>
     <br/>
     <a href="https://github.com/aera128/aera128/claket/issues">Report Bug</a>
@@ -21,7 +21,7 @@
 
 ## About The Project
 
-Claket is a web PWA that allows you to play sounds in voice chats, made with Nuxt.js and using the IndexedDB API.
+Claket is a web PWA that allows you to play sounds in voice chats, made with Nuxt2 and using the IndexedDB API.
 
 ## Features
 - [x] Load file (.mp3, .wav, .flac and video file too) in button
