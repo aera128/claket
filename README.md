@@ -7,7 +7,7 @@
   <h3 align="center">Claket Soundboard</h3>
 
   <p align="center">
-    Simple PWA soundboard made with Nuxt.js
+    Web PWA soundboard made with Nuxt.js. Play sounds in voice chats !
     <br/>
     <br/>
     <a href="https://github.com/aera128/aera128/claket/issues">Report Bug</a>
@@ -16,23 +16,38 @@
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/aera128/aera128/claket/total) ![Issues](https://img.shields.io/github/issues/aera128/aera128/claket)
+![Github All Releases](https://img.shields.io/github/downloads/aera128/claket/total.svg)
+![Issues](https://img.shields.io/github/issues/aera128/aera128/claket)
 
 ## About The Project
 
-Claket is a simple web PWA that allows you to play sounds in voice chats, made with Nuxt.js and using the IndexedDB API.
+Claket is a web PWA that allows you to play sounds in voice chats, made with Nuxt.js and using the IndexedDB API.
 
+## Features
+- [x] Load file (.mp3, .wav, .flac and video file too) in button
+- [x] Drag & drop file in button
+- [x] Play, pause, resume and stop sounds (You can play multiple sound at the same time)
+- [x] Master volume and specific volume of each sound
+- [x] Choose audio output
+- [x] Keyboard navigation (Arrows, Spacebar, WASD, ZQSD, M, R, L, P, +, -)
+- [x] Multi pages
+- [x] Loop audio
+- [x] Playback sound on default audio output
+- [x] Delete all sounds of a page
 ## Getting Started
 
 ### 🚧 Installation
+
+go the [releases](https://github.com/aera128/claket/releases/) page
+
 - Windows : use the [setup](https://github.com/aera128/claket/releases/download/neutralino/claket-setup.exe) or extract the zip file and launch claket-win_x64.exe
 - Other : extract the zip file and launch the executable corresponding to the architecture of your machine
 
-## Or
+### Or
 ### Web app
-- You can use the soundboard on [https://claket.netlify.app/](https://claket.netlify.app/) (Audio output choice not available on firefox, use a chromium or edge based browser)
+- You can use claket on [https://claket.netlify.app](https://claket.netlify.app) (Audio output choice not available on firefox, use a chromium or edge based browser)
 
-### Local Dev Installation
+## Local Dev Installation
 
 ```bash
 # install dependencies
@@ -50,12 +65,13 @@ $ yarn generate
 ```
 
 ## Screenshots
-![ScreenShot](static/ClaketSoundboard.jpeg)
-![ScreenShot](static/ClaketSoundboard.jpeg)
+![ScreenShot](screenshots/screenshot1.jpg)
+![ScreenShot](screenshots/screenshot2.jpg)
+![ScreenShot](screenshots/screenshot3.jpg)
 ## License
 
 Distributed under the MIT License. See [LICENSE](https://github.com/aera128/aera128/claket/LICENSE) for more information.
 
 ## Authors
 
-**aera128** - *Fullstack Web Developer* - [aera128](https://github.com/aera128/)
+**Sk4ur** - *Fullstack Web Developer* - [Sk4ur](https://github.com/aera128/)

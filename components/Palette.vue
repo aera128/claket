@@ -146,7 +146,9 @@ export default {
           break
         case 'Delete':
           e.preventDefault()
-          this.resetPage()
+          if(confirm("Delete page ?")){
+            this.resetPage()
+          }
           break
       }
     })
