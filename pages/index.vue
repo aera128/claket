@@ -95,8 +95,8 @@ export default {
         this.error = true
       }
 
-      request.onupgradeneeded = (event) => {
-        let db = event.target.result
+      request.onupgradeneeded = () => {
+        let db = request.result
         db.createObjectStore('Sounds', {
           keyPath: 'id',
         })
@@ -109,8 +109,8 @@ export default {
         }, 1000)
       }
 
-      request.onsuccess = (event) => {
-        let db = event.target.result
+      request.onsuccess = () => {
+        let db = request.result
         try {
           db.createObjectStore('Sounds', {
             keyPath: 'id',
