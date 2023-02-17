@@ -44,7 +44,7 @@ go the [releases](https://github.com/aera128/claket/releases/) page
 - Other : extract the zip file and launch the executable corresponding to the architecture of your machine
 
 ### Or
-### Web app
+### 🌐 Web app
 - You can use claket on [https://claket.netlify.app](https://claket.netlify.app) (Audio output choice not available on firefox, use a chromium or edge based browser)
 
 ## Local Dev Installation
