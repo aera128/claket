@@ -20,14 +20,19 @@
 
 ## About The Project
 
-![ScreenShot](static/ClaketSoundboard.jpeg)
-
-Claket is a simple PWA soundboard made with Nuxt.js and use IndexedDB API.
+Claket is a simple web PWA that allows you to play sounds in voice chats, made with Nuxt.js and using the IndexedDB API.
 
 ## Getting Started
 
+### 🚧 Installation
+- Windows : use the [setup](https://github.com/aera128/claket/releases/download/neutralino/claket-setup.exe) or extract the zip file and launch claket-win_x64.exe
+- Other : extract the zip file and launch the executable corresponding to the architecture of your machine
 
-### Installation
+## Or
+### Web app
+- You can use the soundboard on [https://claket.netlify.app/](https://claket.netlify.app/) (Audio output choice not available on firefox, use a chromium or edge based browser)
+
+### Local Dev Installation
 
 ```bash
 # install dependencies
@@ -44,6 +49,9 @@ $ yarn start
 $ yarn generate
 ```
 
+## Screenshots
+![ScreenShot](static/ClaketSoundboard.jpeg)
+![ScreenShot](static/ClaketSoundboard.jpeg)
 ## License
 
 Distributed under the MIT License. See [LICENSE](https://github.com/aera128/aera128/claket/LICENSE) for more information.
