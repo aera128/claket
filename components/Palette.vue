@@ -49,7 +49,7 @@
           </select>
           <Volume class="animate__animated animate__fadeInRight" />
           <div class="flex gap-1 justify-end items-center animate__animated animate__fadeInRight">
-            <button class="btn btn-square flex justify-center items-center btn-ghost tooltip tooltip-bottom"
+            <button class="btn btn-square flex justify-center items-center btn-ghost tooltip tooltip-top"
               @click="copyRepoUrl" :data-tip="repoIsCopied ? 'URL is in clipboard !' : 'Copy URL'">
               <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path
