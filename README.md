@@ -7,7 +7,7 @@
   <h3 align="center">Claket Soundboard</h3>
 
   <p align="center">
-    Soundboard made with Nuxt2 Play sounds in voice chats !
+    Soundboard made with Nuxt2. Play sounds in voice chats !
     <br/>
     <br/>
     <a href="https://github.com/aera128/aera128/claket/issues">Report Bug</a>
