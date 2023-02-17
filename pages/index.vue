@@ -30,9 +30,11 @@
             bottom-0
             bg-base-200
             w-full
-            max-h-96
+            max-h-80
             overflow-y-auto
+            scrollbar-thin scrollbar-thumb-base-content
             animate__animated animate__slideInUp
+            z-50
           " style="animation-duration: 300ms">
       <div class="container mx-auto">
         <div v-for="(audio, index) in $store.state.audios" :key="index">
@@ -124,9 +126,6 @@ export default {
     } else {
       this.error = true
     }
-  },
-  methods: {
-    openDB() { },
   },
 }
 </script>

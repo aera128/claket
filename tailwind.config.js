@@ -1,6 +1,10 @@
 module.exports = {
   mode: 'jit',
-  plugins: [require('daisyui'), require('@tailwindcss/line-clamp')],
+  plugins: [
+    require('daisyui'),
+    require('@tailwindcss/line-clamp'),
+    require('tailwind-scrollbar'),
+  ],
   content: [
     `components/**/*.{vue,js}`,
     `layouts/**/*.vue`,

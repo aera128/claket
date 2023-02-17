@@ -3,7 +3,7 @@
     <button class="btn btn-square mr-2 flex-shrink" @click="toggleVolume">
       <span v-if="volume > 0.33" class="text-2xl mdi mdi-volume-high"></span>
       <span v-if="volume <= 0.33 && 0 < volume" class="text-2xl mdi mdi-volume-medium"></span>
-      <span v-if="volume === 0" class="text-2xl mdi mdi-volume-off"></span>
+      <span v-if="volume <= 0" class="text-2xl mdi mdi-volume-off"></span>
     </button>
     <input v-model="volume" type="range" min="0" max="1" step="0.001" class="range range-sm flex-grow mt-3"
       @input="changeVolume" @change="saveVolume" />

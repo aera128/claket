@@ -1,5 +1,5 @@
 <template>
-  <div class="max-h-screen overflow-y-auto overflow-x-hidden" ref="palette">
+  <div class="max-h-screen overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-base-content" ref="palette">
     <input type="checkbox" id="modal-delete" class="modal-toggle" />
     <label for="modal-delete" class="modal cursor-pointer">
       <label class="modal-box relative">
@@ -51,7 +51,7 @@
         </div>
       </div>
       <div
-        class="pb-3 mr-2 animate__animated animate__fadeInRight sticky -top-2 z-50 bg-base-100 flex items-center justify-end gap-1">
+        class="pb-3 pt-4 mr-2 animate__animated animate__fadeInRight sticky -top-2 z-50 bg-base-100 flex items-center justify-end gap-1">
         <button class="btn btn-square flex-shrink tooltip tooltip-bottom" @click="lastPage" :disabled="isFirstPage"
           data-tip="Previous Page">
           <span class="text-2xl mdi mdi-arrow-left"></span>
